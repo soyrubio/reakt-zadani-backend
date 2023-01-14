@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+
+* {
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+}
+
+@layer components {
+    .reakt-button {
+        @apply inline-flex items-center rounded-md border border-transparent bg-primary text-heading-small px-12 py-3 hover:bg-primary-300 active:bg-primary-400 font-bold text-white active:scale-90 disabled:scale-100 transition disabled:cursor-not-allowed
+    }
+    .reakt-button.is-outlined{
+        @apply inline-flex border border-dark-300 items-center rounded-md bg-white text-black text-heading-small px-12 py-3 hover:bg-light-50 active:bg-dark-100 font-bold active:scale-90 disabled:scale-100 transition disabled:cursor-not-allowed
+    }
+}
+
+input[type="checkbox"]{
+    display: block;
+    margin: 10px 10px 10px 0;
+}
+label{
+    display: flex;
+    cursor: pointer;
+    align-items: center
+}
+
+@tailwind utilities;
