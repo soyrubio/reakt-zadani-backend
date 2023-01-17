@@ -49,7 +49,7 @@ app.post('/products', (req, res) => {
 })
 
 // Update a product
-app.put('/products', (req, res) => {
+app.put('/products/:id', (req, res) => {
     const data = readData()
     const product = data.products.find(p => p.modelId === parseInt(req.params.id))
     if (!product) {
