@@ -15,6 +15,7 @@ meta: [
 },
 css: ['~/assets/styles/styles.css'],
 modules: ['nuxt-font-loader'],
+
 fontLoader: {
 external: [
 {
@@ -29,6 +30,8 @@ plugins: {
 tailwindcss: {},
 autoprefixer: {}
 },
-},
-build: { transpile: ['yup', 'lodash', '@vee-validate/rules'] },
+    },
+
+    build: { transpile: ['yup', 'lodash', '@vee-validate/rules'] },
+
 })

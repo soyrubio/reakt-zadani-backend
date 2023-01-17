@@ -1,3 +1,5 @@
+
+
 <template>
   <div>
     <div class="grid grid-cols-12 gap-6 pt-8">
@@ -21,64 +23,77 @@
       </div>
     </div>
   </div>
-
 </template>
+
 <script>
-  export default defineNuxtComponent({
-    async asyncData() {
-      // to fetch data use $fetch (or install Axios or whatever you want)
+const fetchProducts = async (filterIds) => {
+  try {
+    let url = 'http://localhost:3001/products'
+    if (filterIds !== undefined && filterIds.length > 0)
+      url = url + '?filter=' + filterIds.join(',')
+    console.log(url)
+    const products = await $fetch(url)
+    return {
+      products: products,
+    }
+  } catch (e) {
+    console.log(e)
+    return {
+      products: [],
+    }
+  }
+}
+
+const fetchModelFilters = async () => {
+  try {
+    const modelFilters = await $fetch('http://localhost:3001/modelFilters')
+    console.log(modelFilters)
+    return {
+      modelFilters: modelFilters,
+    }
+  } catch (e) {
+    console.log(e)
+    return {
+      modelFilters: [],
+    }
+  }
+}
+
+export default defineNuxtComponent({
+  data() {
+    return {
+      headerTitle: "Hodinky PRIM",
+    }
+  },
+
+  async asyncData(){
+    try {
+      const { modelFilters } = await fetchModelFilters()
+      const { products } = await fetchProducts()
+      console.log(products, modelFilters)
       return {
-        modelFilters: [
-            {
-            "name": "Brusel",
-            "checked": false,
-            "id": 0
-          }, {
-            "name": "Diplomat",
-            "checked": false,
-            "id": 1
-          }, {
-            "name": "Orlík",
-            "checked": false,
-            "id": 2
-          },{
-            "name": "Pavouk",
-            "checked": false,
-            "id": 3
-          },{
-            "name": "Spartak",
-            "checked": false,
-            "id": 4
-          }
-        ],
-        products: [{
-            src: "/hodinky.jpg",
-            srcset: "/hodinky.jpg, /hodinky@2x.jpg 2x",
-            name: "Prim Brusel 39",
-            price: 79900,
-            description: "Nerezová ocel",
-            modelId: 0,
-          },{
-            src: "/hodinky.jpg",
-            srcset: "/hodinky.jpg, /hodinky@2x.jpg 2x",
-            name: "Prim Brusel 42",
-            price: 89900,
-            description: "Nerezová ocel",
-            modelId: 0,
-          },
-        ]
+        products: products,
+        modelFilters: modelFilters,
       }
-    },
-    data() {
-      return {
-        headerTitle: "Hodinky PRIM"
-        // this is where you might want to define your variable data
-      }
-    },
-    methods:  {
-      applyFilters(){
-        console.log(this.modelFilters)
-      }
-    },
-  })
+    } catch (e) {
+      console.log(e)
+    }
+  },
+
+  methods: {
+    async applyFilters() {
+      console.log(this.modelFilters, this)
+
+      const selectedFilterIds = this.modelFilters
+          .filter((model) => model.checked)
+          .map((model) => model.id)
+
+      const { products } = await fetchProducts(selectedFilterIds)
+      console.log("fetched products", products, 'selectedFilterIds', selectedFilterIds)
+      this.products = products
+    }
+  },
+  
+})
+
 </script>
