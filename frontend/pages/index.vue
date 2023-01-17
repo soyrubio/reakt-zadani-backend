@@ -31,7 +31,6 @@ const fetchProducts = async (filterIds) => {
     let url = 'http://localhost:3001/products'
     if (filterIds !== undefined && filterIds.length > 0)
       url = url + '?filter=' + filterIds.join(',')
-    console.log(url)
     const products = await $fetch(url)
     return {
       products: products,
@@ -47,7 +46,6 @@ const fetchProducts = async (filterIds) => {
 const fetchModelFilters = async () => {
   try {
     const modelFilters = await $fetch('http://localhost:3001/modelFilters')
-    console.log(modelFilters)
     return {
       modelFilters: modelFilters,
     }
@@ -77,19 +75,20 @@ export default defineNuxtComponent({
       }
     } catch (e) {
       console.log(e)
+      return {
+        products: [],
+        modelFilters: [],
+      }
     }
   },
 
   methods: {
     async applyFilters() {
-      console.log(this.modelFilters, this)
-
       const selectedFilterIds = this.modelFilters
           .filter((model) => model.checked)
           .map((model) => model.id)
 
       const { products } = await fetchProducts(selectedFilterIds)
-      console.log("fetched products", products, 'selectedFilterIds', selectedFilterIds)
       this.products = products
     }
   },

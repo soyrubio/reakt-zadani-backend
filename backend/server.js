@@ -3,7 +3,7 @@ const fs = require('fs')
 var cors = require('cors')
 const app = express()
 
-// To resolve CORS issue, allow requests from localhost:8888
+// To resolve CORS issue, allow requests from localhost:3000
 app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.listen(3001, () => {
@@ -27,9 +27,7 @@ const writeData = (data) => {
 app.get('/products', (req, res) => {
     const products = readData().products
     const filter = req.query.filter
-    console.log("filter", filter, req.query)
     if (!filter) {
-
         res.send(products)
     } else {
         const filteredProducts = products.filter(p => filter.includes(p.modelId))
@@ -51,7 +49,7 @@ app.post('/products', (req, res) => {
 })
 
 // Update a product
-app.put('/products/:id', (req, res) => {
+app.put('/products', (req, res) => {
     const data = readData()
     const product = data.products.find(p => p.modelId === parseInt(req.params.id))
     if (!product) {
