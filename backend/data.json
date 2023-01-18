@@ -1,117 +1,156 @@
 {
-    "watchModels": [{
-        "name": "Brusel",
-        "checked": false,
-        "id": 0
-      }, {
-        "name": "Diplomat",
-        "checked": false,
-        "id": 1
-      }, {
-        "name": "Orlík",
-        "checked": false,
-        "id": 2
-      },{
-        "name": "Pavouk",
-        "checked": false,
-        "id": 3
-      },{
-        "name": "Spartak",
-        "checked": false,
-        "id": 4
-      }
+    "watchModels": [
+        {
+            "name": "Brusel",
+            "checked": false,
+            "id": 0
+        },
+        {
+            "name": "Diplomat",
+            "checked": false,
+            "id": 1
+        },
+        {
+            "name": "Orlík",
+            "checked": false,
+            "id": 2
+        },
+        {
+            "name": "Bratislava",
+            "checked": false,
+            "id": 3
+        },
+        {
+            "name": "Bratislava",
+            "checked": false,
+            "id": 4
+        },
+        {
+            "name": "Bratislava",
+            "checked": false,
+            "id": 6
+        }
     ],
-    "products": [{
+    "products": [
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Brusel 39",
             "price": 79900,
             "description": "Nerezová ocel",
             "modelId": 0
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Brusel 42",
             "price": 89900,
             "description": "Nerezová ocel",
             "modelId": 0
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Dimplomat 34 C",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 1
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Dimplomat 40 C",
             "price": 89900,
             "description": "Nerezová ocel",
             "modelId": 1
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Orlík 38",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 2
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Orlík 38 D LE",
             "price": 175900,
             "description": "Nerezová ocel",
             "modelId": 2
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Orlík II C",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 2
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Orlík II DLC",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 2
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Pavouk 34 C",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 3
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Pavouk 40 C",
             "price": 94900,
             "description": "Nerezová ocel",
             "modelId": 3
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Spartak 39",
             "price": 74900,
             "description": "Nerezová ocel",
             "modelId": 4
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Spartak 40",
             "price": 74900,
             "description": "Nerezová ocel",
             "modelId": 4
-          },{
+        },
+        {
             "src": "/hodinky.jpg",
             "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
             "name": "Prim Spartak 43",
             "price": 84900,
             "description": "Nerezová ocel",
             "modelId": 4
-          }
+        },
+        {
+            "src": "/hodinky.jpg",
+            "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
+            "name": "Prim Brusel 40",
+            "price": 79900,
+            "description": "Nerezová ocel",
+            "modelId": 0
+        },
+        {
+            "src": "/hodinky.jpg",
+            "srcset": "/hodinky.jpg, /hodinky@2x.jpg 2x",
+            "name": "Prim Brusel 40",
+            "price": 79900,
+            "description": "Nerezová ocel",
+            "modelId": 0
+        }
     ]
 }
