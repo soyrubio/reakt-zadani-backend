@@ -1,19 +1,22 @@
-# Zadání úkolu na pozici backend vývojář
-Tento repozitář obsahuje zadání úkolu k vypracování. Kromě menší zkoušky schopností také seznamuje s frameworkem Nuxt, ve kterém pracujeme. Pro splnění úkolu je nutné použít jazyk Javascript nebo Typescript v Node.js.
-Pro spuštění je potřeba mít nainstalován Node a NPM.
+# Riešenie úlohy
 
-Složka `/frontend/`obsahuje vytvořený Nuxt projekt. Nejdříve je potřeba instalace `npm install`, poté se projekt spustí pomocí `npm run dev`.  Aplikace by měla být dostupná na http://localhost:3000/ (případně následující volný port).
-Všechny požadavky, které zahrnují úpravu frontendu stačí upravit v souboru `/frontend/pages/index.vue`
+Tu popíšem stručne a vo všeobecnosti moje riešenie zadanej úlohy. Ak mi prišlo vhodné niečo podotknúť v kóde, tak sa menšie poznámky nachádzajú aj tam.
 
-Soubor `/backend/data.json` obsahuje data, která se mají na webové stránce zobrazit. Slouží pro nás jako taková náhrada databáze. Tento soubor načítej pouze na backendu.
+## Backend
 
-To, co není specifikované, zpracuj podle svého uvážení. Případné dotazy nebo problémy s řešením posílej na sulzer@reakt.cz 
+Backend som implementoval pomocou Express. Pri backende som narazil na následujúce problémy:
 
-## Požadavky
-- Vytvořit ve složce `/backend/` nový Node.js projekt s http serverem (třeba Express, http-server apod.)
-- Naprogramovat vhodné API podporující jednoduché CRUD operace pro data z `/backend/data.json`. Autorizace není potřeba. Veškeré editace by se měly propsat do souboru.
-- Použít toto API na frontedu pro získání dat o hodinkách a jejich modelech ze serveru. Kód je tam částečně připraven.
-- Zprovoznit aplikování filtrů. Samotné filtrování musí probíhat na serveru, **nikoliv na frontendu**.
+- musel som importovať CORS a povoliť access origin z portu na ktorom beží Nuxtjs, inak mi vyhadzoval frontend chyby
+- update a delete operácie pre produkt nie sú funkčné, nakoľko mi nie je úplne jasné ako ich mam identifikovať (chýba mi tam id), operácie by som však implementoval rovnako ako pri /watchModels
 
-## Odevzdání
-Preferujeme poslat odkaz na kopii repozitáře nebo fork tohoto repozitáře, na email sulzer@reakt.cz. Případně poslat komprimovaný archiv s celým projektem (prosím, bez složek node_modules).
+Všetky implementované operácie na backende som otestoval pomocou Insomnie. Mimo vyššie spomenutých problémov som s Backendom nemal problém
+
+## Frontend
+
+S frontendom som mal väčší problém, nakoľko by som asi potreboval menšiu chvíľu sa s Nuxtjs zoznámiť. Keďže som s Vuejs priamo ešte nepracoval tak som miestami tápal, najma:
+
+- Najprv som chcel použiť axios na data fetching z backendu, no nevedel som ho integrovať do aplikácie. Keď som pridal @nuxtjs/axios medzi modules v nuxt.config.ts, aplikácia sa ani nenačítala. Keď som použil obyčajný axios, vyhadzoval mi zas chyby samotný js.
+- Nie som si istý či správne rozumiem ako funguje state management vo Vuejs
+- Mne by dávalo zmysel pri aplikovaní filterov urobiť redirect/pridať fitler query params do aktuálnej url. Ak je môj poznatok správny, tak by som asi ani nevedel ako na to.
+
+Na Vuejs/Nuxtjs musím jednoznačne zapracovať. Nakoľko mám kvôli skúškovému obdobiu menej času tak som do vuejs musel naozaj skôr skočiť bez poriadneho crash course. Verím však že keď budem mať čas sa na vuejs viac pozrieť tak s tým po trochu cviku určite nebudem mať problém.

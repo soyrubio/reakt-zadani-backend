@@ -45,7 +45,7 @@ const fetchProducts = async (filterIds) => {
 
 const fetchModelFilters = async () => {
   try {
-    const modelFilters = await $fetch('http://localhost:3001/modelFilters')
+    const modelFilters = await $fetch('http://localhost:3001/watchModels')
     return {
       modelFilters: modelFilters,
     }
