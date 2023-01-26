@@ -20,3 +20,11 @@ S frontendom som mal väčší problém, nakoľko by som asi potreboval menšiu 
 - Mne by dávalo zmysel pri aplikovaní filterov urobiť redirect/pridať fitler query params do aktuálnej url. Ak je môj poznatok správny, tak by som asi ani nevedel ako na to.
 
 Na Vuejs/Nuxtjs musím jednoznačne zapracovať. Nakoľko mám kvôli skúškovému obdobiu menej času tak som do vuejs musel naozaj skôr skočiť bez poriadneho crash course. Verím však že keď budem mať čas sa na vuejs viac pozrieť tak s tým po trochu cviku určite nebudem mať problém.
+
+## Update
+
+- refactoring
+- pridaný Express router
+- pridané ids k products
+- server config
+- validácia vstupou pomocou Joi
