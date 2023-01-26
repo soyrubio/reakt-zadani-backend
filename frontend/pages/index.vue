@@ -45,7 +45,7 @@ const fetchProducts = async (filterIds) => {
 
 const fetchModelFilters = async () => {
   try {
-    const modelFilters = await $fetch('http://localhost:3001/watchModels')
+    const modelFilters = await $fetch('http://localhost:3001/models')
     return {
       modelFilters: modelFilters,
     }
@@ -68,7 +68,6 @@ export default defineNuxtComponent({
     try {
       const { modelFilters } = await fetchModelFilters()
       const { products } = await fetchProducts()
-      console.log(products, modelFilters)
       return {
         products: products,
         modelFilters: modelFilters,
